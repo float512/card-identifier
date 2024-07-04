@@ -19,7 +19,9 @@ class card {
             this.invalid = true;
             return;
         };
-        
+
+        this.cvc = cvc || null;
+        this.exp = exp || null;
 
         this.section1 = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
         this.section2 = numberArray[4] + numberArray[5] + numberArray[6] + numberArray[7];
@@ -45,7 +47,9 @@ class card {
             this.invalid = true;
             return;
         };
-        
+
+        this.cvc = cvc || null;
+        this.exp = exp || null;
 
         this.section1 = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
         this.section2 = numberArray[4] + numberArray[5] + numberArray[6] + numberArray[7] + numberArray[8] + numberArray[9];
