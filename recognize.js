@@ -1,5 +1,5 @@
 class card {
-    constructor(number, cvc, exp) {
+    constructor(number, exp, cvc) {
         let numberArray = number.replaceAll(" ","").split(/(?:)/u);
         
 
