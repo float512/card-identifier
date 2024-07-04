@@ -8,7 +8,7 @@ class card {
 
 
         //16 DIGIT LOGIC
-        if (numberArray.length == 16 && cvc.length == 3) { 
+        if (numberArray.length == 16) { 
             
         if (numberArray[0] == "5") {
             this.bank = "Mastercard®"
@@ -20,9 +20,11 @@ class card {
             this.invalid = true;
             return;
         };
+
+        if (cvv != 3) {
+            this.invalid = true;
+        };
         
-        this.cvc = cvc;
-        this.exp = exp;
 
         this.section1 = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
         this.section2 = numberArray[4] + numberArray[5] + numberArray[6] + numberArray[7];
@@ -40,27 +42,31 @@ class card {
 
 
         //15 DIGIT LOGIC
-        if (numberArray.length == 15 && cvc.length == 4) { 
+        if (numberArray.length == 15) { 
         
-        if (numberArray[0] + numberArray[1] == "34" || numberArray[0] + numberArray[1] == "37" && cvc.length == 4) {
+        if (numberArray[0] + numberArray[1] == "34" || numberArray[0] + numberArray[1] == "37") {
             this.bank = "American Express®"
         } else {
             this.invalid = true;
             return;
         };
-        
-        this.cvc = cvc || null;
-        this.exp = exp || null;
+
+            
+        if (cvv != 4) {
+            this.invalid = true;
+        };
+            
 
         this.section1 = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
         this.section2 = numberArray[4] + numberArray[5] + numberArray[6] + numberArray[7] + numberArray[8] + numberArray[9];
         this.section3 = numberArray[10] + numberArray[11] + numberArray[12] + numberArray[13] + numberArray[14];
         this.displayNumber = this.section1 + " " + this.section2 + " " + this.section3;
-
+        
         this.invalid = false;
         };
 
-
+        this.cvc = cvc || null;
+        this.exp = exp || null;
 
     };
 };
