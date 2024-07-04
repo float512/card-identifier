@@ -2,7 +2,6 @@ class card {
     constructor(number, cvc, exp) {
         let numberArray = number.replaceAll(" ","").split(/(?:)/u);
         
-        
 
 
 
@@ -19,10 +18,6 @@ class card {
         } else {
             this.invalid = true;
             return;
-        };
-
-        if (cvv != 3) {
-            this.invalid = true;
         };
         
 
@@ -50,12 +45,7 @@ class card {
             this.invalid = true;
             return;
         };
-
-            
-        if (cvv != 4) {
-            this.invalid = true;
-        };
-            
+        
 
         this.section1 = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
         this.section2 = numberArray[4] + numberArray[5] + numberArray[6] + numberArray[7] + numberArray[8] + numberArray[9];
@@ -64,9 +54,5 @@ class card {
         
         this.invalid = false;
         };
-
-        this.cvc = cvc || null;
-        this.exp = exp || null;
-
     };
 };
